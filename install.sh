@@ -1,10 +1,12 @@
 #!/bin/bash
 
 # Update package database and install required packages
-sudo pacman -Sy git curl npm wget nano base-devel --noconfirm
+sudo pacman -Sy git curl npm wget nano base-devel ufw autoconf automake openssh gnutls --noconfirm
 
 # Install undollar globally using npm
 sudo npm install undollar -g
+sudo systemctl enable ufw
+sudo systemctl enable sshd
 
 # Install yay package manager
 git clone https://aur.archlinux.org/yay.git
